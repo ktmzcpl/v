@@ -1,0 +1,54 @@
+{	"dns": {
+		"servers": [
+			{
+				"address": "https+local://dns.alidns.com/dns-query",
+				"domains": [
+					"geosite:cn",
+					"domain:recaptcha.net",
+					"domain:googleapis.com",
+					"domain:gstatic.com",
+					"domain:loli.net",
+					"geosite:akamai"
+				]
+			},
+			"https+local://i.passcloud.xyz/dns-query",
+			"https+local://a.passcloud.xyz/dns-query",
+			"https+local://rubyfish.cn/dns-query",
+			"https+local://i.233py.com/dns-query",
+			"https+local://doh.dns.sb/dns-query",
+			"tcp+local://dot.sb:853",
+			{
+				"address": "localhost",
+				"domains": [
+					"full:www.msftconnecttest.com"
+				]
+			}
+		],
+		"hosts": {
+			"g.kfd.me": "172.67.161.231",
+			"wiki.kfd.me": "172.67.161.231",
+			"gg.chn.moe": "216.24.178.192",
+			"gg0.chn.moe": "216.24.178.192",
+			"mirism.one": "216.24.178.192",
+			"beta.mirism.one": "216.24.178.192",
+			"ng01.mirism.one": "216.24.178.192",
+			"translate.googleapis.com": "114.250.64.34"
+		},
+		"queryStrategy": "UseIP6"
+	},
+  "inbounds": [],
+  "outbounds": [],
+  "log": {
+    "error": "",
+    "access": "",
+    "loglevel": "warning"
+  },
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": []
+  },
+	"browserForwarder": {
+		"listenAddr": "127.0.0.1",
+		"listenPort": 8080
+	}
+}

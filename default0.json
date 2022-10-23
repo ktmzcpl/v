@@ -1,0 +1,64 @@
+{
+  "outbounds": [
+    {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "coding.net",
+            "users": [
+              {
+                "id": "6c29383f-0d3e-4221-b700-86751119fce7",
+                "alterId": 64,
+                "security": "auto",
+                "level": 0
+              }
+            ],
+            "port": 443
+          }
+        ]
+      },
+      "tag": "{cc465d0d-7838-4fa6-83c4-44b1c01cce2e}",
+      "streamSettings": {
+        "wsSettings": {
+          "headers": {
+            "Host": ""
+          }
+        },
+        "quicSettings": {
+          "key": "key",
+          "security": "none",
+          "header": {
+            "type": "none"
+          }
+        },
+        "tlsSettings": {
+        },
+        "kcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        },
+        "tcpSettings": {
+          "header": {
+            "type": "none"
+          }
+        },
+        "security": "tls",
+        "network": "ws",
+        "sockopt": {"tcpFastOpen":true}
+      }
+    },
+    {
+      "protocol": "freedom",
+      "tag": "direct",
+        "settings": {
+          "domainStrategy": "UseIP"
+        }
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "black"
+    }
+  ]
+}
