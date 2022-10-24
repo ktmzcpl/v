@@ -4,6 +4,7 @@ from pprint import pprint
 
 from pip._vendor import requests
 from pip._vendor.requests.adapters import HTTPAdapter
+from pip._vendor import urllib3
 # from requests.adapters import HTTPAdapter
 
 from selenium.webdriver import Firefox
@@ -351,7 +352,7 @@ for subURL, name in subURLs:
     SSrSubs = set()
     try:
         print('🎫', subURL)
-        r = s.get(subURL, headers={"User-Agent": None}, timeout=8)
+        r = s.get(subURL, headers={"User-Agent": urllib3.util.SKIP_HEADER}, timeout=8)
     except requests.exceptions.ConnectionError as err:
         print('🎫❌', subURL, err)
         continue
