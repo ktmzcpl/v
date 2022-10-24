@@ -214,7 +214,7 @@ def SSSub(sub, name):
         print(sub)
         raise err
     method,password,address,port = SSRegex.findall(sub)[0]
-    if method in ('rc4-md5', 'aes-256-cfb'): return
+    if method in ('rc4-md5', 'aes-256-cfb', 'aes-128-cfb'): return
     outbound = {
         "protocol": "shadowsocks",
         "tag": ps,
@@ -239,7 +239,7 @@ def SSrSub(sub, name):
     ps = base64.b64decode(ps+'='*3).decode('UTF-8') + '@' + name
     sub = base64.b64decode(sub+'='*3).decode('UTF-8')
     address,port,protocol,method,obfs,password = SSrRegex.findall(sub)[0]
-    if method in ('rc4-md5', 'aes-256-cfb'): return
+    if method in ('rc4-md5', 'aes-256-cfb', 'aes-128-cfb'): return
     outbound = {
         "protocol": "shadowsocks",
         "tag": ps,
