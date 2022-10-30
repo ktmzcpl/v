@@ -16,7 +16,7 @@ max_time = float(os.environ.get('max_time', '1500')) + time.time()
 opts = Options()
 opts.headless=True
 assert opts.headless # Operating in headless mode
-fp = webdriver.FirefoxProfile()
+fp = selenium.webdriver.FirefoxProfile()
 fp.set_preference("network.proxy.type", 1)
 fp.set_preference("network.proxy.socks", '127.0.0.1')
 fp.set_preference("network.proxy.socks_port", 1082)
