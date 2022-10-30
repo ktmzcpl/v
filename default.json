@@ -34,10 +34,18 @@
 			"ng01.mirism.one": "216.24.178.192",
 			"translate.googleapis.com": "114.250.64.34"
 		},
-		"queryStrategy": "UseIP6"
+		"queryStrategy": "UseIPv6"
 	},
-  "inbounds": [],
-  "outbounds": [],
+  "inbounds": [{
+      "port": 1082,
+      "listen": "127.0.0.1",
+      "settings": {
+        "udp": true
+      },
+      "protocol": "socks",
+	  "tag": "direct"
+    }],
+  "outbounds": [{"protocol": "freedom", "tag": "direct", "settings": {"domainStrategy": "UseIP"}}],
   "log": {
     "error": "",
     "access": "",
@@ -45,7 +53,7 @@
   },
   "routing": {
     "domainStrategy": "AsIs",
-    "rules": []
+    "rules": [{"type": "field","network": "tcp,udp","inboundTag":["direct"],"outboundTag": "direct"}]
   },
 	"browserForwarder": {
 		"listenAddr": "127.0.0.1",
