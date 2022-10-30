@@ -7,6 +7,7 @@ from pip._vendor.requests.adapters import HTTPAdapter
 from pip._vendor import urllib3
 # from requests.adapters import HTTPAdapter
 
+import selenium.webdriver
 from selenium.webdriver import Firefox
 from selenium.webdriver.firefox.options import Options
 
@@ -15,7 +16,13 @@ max_time = float(os.environ.get('max_time', '1500')) + time.time()
 opts = Options()
 opts.headless=True
 assert opts.headless # Operating in headless mode
-browser = Firefox(options=opts, service_log_path='/tmp/geckodriver.log')
+fp = webdriver.FirefoxProfile()
+fp.set_preference("network.proxy.type", 1)
+fp.set_preference("network.proxy.socks", '127.0.0.1')
+fp.set_preference("network.proxy.socks_port", 1082)
+fp.set_preference("network.proxy.socks_remote_dns", True)
+fp.update_preferences()
+browser = Firefox(options=opts, service_log_path='/tmp/geckodriver.log', firefox_profile=fp)
 browser.get('about:blank')
 
 s = requests.Session()
